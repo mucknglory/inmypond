@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "Contact Us";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="row">
+        <!-- sidebar -->
+        <div class="col-md-3 sidebar">
+            <!-- Sections Menu-->
+            <div class="section-menu">
+                <ul class="nav nav-list">
+                    <li class="nav-header">In This Section</li>
+                    <li>
+                        <a href="/home/about" class="first">
+                            About Us
+                            <small>What makes us tick!</small>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/home/team">
+                            The Team
+                            <small>Team List</small>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="/home/contact">
+                            Contact Us
+                            <small>How to get in touch</small>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--main content-->
+        <div class="col-md-9">
+            <h2 class="title-divider">
+                <span>Contact <span class="de-em">Us</span></span>
+                <small>Ways To Get In Touch</small>
+            </h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="contact-form" action="#" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="contact-name">Name</label>
+                            <input type="text" class="form-control" id="contact-name" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="contact-email">Email</label>
+                            <input type="email" class="form-control" id="contact-email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="contact-message">Message</label>
+                            <textarea rows="12" class="form-control" id="contact-message"
+                                      placeholder="Message"></textarea>
+                        </div>
+                        <input type="button" class="btn btn-primary" value="Send Message">
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <abbr title="Phone"><i class="fa fa-phone"></i></abbr>
+                        +44 (0)1302 8092344
+                    </p>
+                    <p>
+                        <abbr title="Email"><i class="fa fa-envelope"></i></abbr>
+                        info@inmypond.com
+                    </p>
+                    <p>
+                        <abbr title="Address"><i class="fa fa-home"></i></abbr>
+                        Pond House, Doncaster, DN5 8BN.
+                    </p>
+                    <p>
+                        <div class="google-map" id="map1"></div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!--
+     You need to include this script on any page that has a Google Map.
+     When using Google Maps on your own site you MUST signup for your own API key at:
+     https://developers.google.com/maps/documentation/javascript/tutorial#api_key
+     After your sign up replace the key in the URL below..
+    -->
+    @Scripts.Render("https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70")
+
+    <script type="text/javascript">
+        // When the window has finished loading google map
+        google.maps.event.addDomListener(window, 'load', init);
+
+        function init() {
+            // Options for Google map
+            // More info see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+            var mapOptions1 = {
+                zoom: 14,
+                center: new google.maps.LatLng(53.529067, -1.149947),
+                // Style for Google Maps
+                styles: [{ "featureType": "water", "stylers": [{ "saturation": 43 }, { "lightness": -11 }, { "hue": "#0088ff" }] }, { "featureType": "road", "elementType": "geometry.fill", "stylers": [{ "hue": "#ff0000" }, { "saturation": -100 }, { "lightness": 99 }] }, { "featureType": "road", "elementType": "geometry.stroke", "stylers": [{ "color": "#808080" }, { "lightness": 54 }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#ece2d9" }] }, { "featureType": "poi.park", "elementType": "geometry.fill", "stylers": [{ "color": "#ccdca1" }] }, { "featureType": "road", "elementType": "labels.text.fill", "stylers": [{ "color": "#767676" }] }, { "featureType": "road", "elementType": "labels.text.stroke", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "poi", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape.natural", "elementType": "geometry.fill", "stylers": [{ "visibility": "on" }, { "color": "#b8cb93" }] }, { "featureType": "poi.park", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.sports_complex", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.medical", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.business", "stylers": [{ "visibility": "simplified" }] }]
+            };
+
+            // Get all html elements for map
+            var mapElement1 = document.getElementById('map1');
+
+            // Create the Google Map using elements
+            var map1 = new google.maps.Map(mapElement1, mapOptions1);
+        }
+    </script>
+}
+

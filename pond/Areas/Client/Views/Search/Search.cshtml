@@ -1,0 +1,185 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+
+@Html.Partial("_BreadcrumbsPartial")
+
+<div class="wrapper wrapper-content border-bottom animated fadeInRight">
+    @*<div class="row wrapper border-bottom white-bg page-heading">*@
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-content">
+                    <div class="form-horizontal">
+                        <h2>What are you looking for?</h2>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Where do you want to search?</label>
+                            <div class="col-sm-6">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <p>
+                                        <label class="btn btn-warning active">
+                                            <input type="radio" name="options" id="option1" autocomplete="off" checked> <i class="fa fa-globe"></i> All listings
+                                        </label>
+                                        <label class="btn btn-white">
+                                            <input type="radio" name="options" id="option2" autocomplete="off"> <i class="fa fa-book"></i> My Pond
+                                        </label>
+                                        <label class="btn btn-white">
+                                            <input type="radio" name="options" id="option3" autocomplete="off"> <i class="fa fa-heart-o"></i> My Favourites
+                                        </label>
+                                        <label class="btn btn-white">
+                                            <input type="radio" name="options" id="option3" autocomplete="off"> <i class="fa fa-user"></i> Search a connection's pond...
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Type the name of the business or service you're looking for</label>
+                            <div class="col-sm-6">
+                                <p>
+                                        <div class="typeahead-container">
+                                            <div class="typeahead-field">
+                                                <span class="typeahead-query">
+                                                    <input id="search-query-box" name="search-query[query]" type="search" placeholder="e.g. Plumber..." autocomplete="off">
+                                                </span>
+                                                <span class="typeahead-button">
+                                                    <button type="submit">
+                                                        <i class="typeahead-search-icon"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                            </p>
+
+                                <div class="table-responsive table-condensed">
+                                    <table class="table">
+                                        <tr>
+                                            <td><a href="#">Plumber</a></td>
+                                            <td><a href="#">Builder</a></td>
+                                            <td><a href="#">Electrician</a></td>
+                                            <td><a href="#">Carpenter & Joiner</a></td>
+                                            <td><a href="#">Gas Engineer</a></td>
+                                            <td><a href="#">Architect</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">Hairdresser</a></td>
+                                            <td><a href="#">Nail Care</a></td>
+                                            <td><a href="#">Garage Services</a></td>
+                                            <td><a href="#">Accountant</a></td>
+                                            <td><a href="#">Financial Advisor</a></td>
+                                            <td><a href="#">Mortgage Advisor</a></td>
+                                        </tr>
+                                    </table>
+                                    <button type="button" class="btn btn-primary pull-right">Browse Categories...</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>When do you want it?</h2>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Tell us approximately when you want the service</label>
+                            <div class="col-sm-6">
+                                <!-- ionRange Range Slider -->
+                                <div id="dateRangeSlider"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">or...</label>
+                            <div class="col-sm-6">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <p>
+                                        <button class="btn btn-white" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="fa fa-calendar-o"></i>   Any Date</button>
+                                        <button class="btn btn-white" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="fa fa-calendar"></i>   I have a specific date</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Where do you want it?</h2>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Where do you want this service?</label>
+
+                            <div class="col-sm-6">
+                                <div class="input-group m-b">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-map-marker"></i>
+                                    </span>
+                                    <input type="text" placeholder="Enter town or postcode" class="form-control">
+                                    <span class="input-group-btn"><button type="button" class="btn btn-primary">Use my location</button></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4">
+                                <a class="btn btn-lg btn-primary" href="@Url.Action("SearchResults", "Search", new { area = "Client" })"> Search <i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/Content/plugins/ionRangeSlider/ionRangeStyles")
+    @Styles.Render("~/Content/plugins/jquery-typeahead")
+    @Styles.Render("~/Content/plugins/cal-heatmap")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/ionRange")
+    @Scripts.Render("~/plugins/jquery-typeahead")
+    @Styles.Render("~/plugins/cal-heatmap")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#search-query-box').typeahead({
+                minLength: 1,
+                order: "asc",
+                template: "{{display}} <small style='color:#999;'>{{group}}</small>",
+                debug: true,
+                source: {
+                    category: {
+                        url: {
+                            type: "GET",
+                            url: "@Url.Action("GetServiceCategories", "ServiceCategories", new {area = "Provider"})",
+                            data: {
+                                myKey: "myValue"
+                            }
+                        }
+                    },
+                    "service provider": {
+                        url: {
+                            type: "GET",
+                            url: "@Url.Action("GetServiceProviders", "ServiceProviders", new {area = "Provider"})",
+                            data: {
+                                myKey: "myValue"
+                            }
+                        }
+                    }
+                }
+            });
+
+
+            // Range Slider
+            $("#dateRangeSlider").ionRangeSlider({
+                values: [
+                    "Today", "Tomorrow", "This week",
+                    "Next two weeks", "This month", "This year"
+                ],
+                type: 'single',
+                from: 1,
+                grid: true,
+                grid_num: 6
+            });
+
+        });
+    </script>
+}

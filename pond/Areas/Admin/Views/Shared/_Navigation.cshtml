@@ -1,0 +1,62 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span>
+                        <img alt="image" class="img-circle" src="~/Images/profile_small.jpg" />
+                    </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">John Duckmanton</strong>
+                            </span> <span class="text-muted text-xs block">Director <b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+@*                        <li><a href="@Url.Action("Profile", "AppViews",)">Profile</a></li>*@
+                        <li><a href="#">Profile</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Login", "Pages")">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    <img src="~/Images/branding/frog-blue-sml.png" />
+                </div>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Index", "Home", new { area= ""})"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Mailbox")">
+                <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning pull-right">16/24</span></a>
+                <ul class="nav nav-second-level">
+                    <li class="@Html.IsSelected(action: "Inbox")"><a href="@Url.Action("Inbox", "Mailbox", new { area = "client" })">Inbox</a></li>
+                    <li class="@Html.IsSelected(action: "ComposeEmail")"><a href="@Url.Action("ComposeEmail", "Mailbox", new { area = "client" })">Compose email</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Administration </span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="@Html.IsSelected(action: "Index")"><a href="@Url.Action("Index", "ServiceCategories", new { area = "Admin" })">Service Categories</a></li>
+                    <li class="@Html.IsSelected(action: "Index")"><a href="@Url.Action("Index", "ServiceProviders", new { area = "Admin" })">Service Providers</a></li>
+                    <li><a href="#">Clients</a></li>
+                    <li>
+                        <a href="#">Users</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Billing </span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="#">Menu one</a></li>
+                    <li>
+                        <a href="#">Menu two</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

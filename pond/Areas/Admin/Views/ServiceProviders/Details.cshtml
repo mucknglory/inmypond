@@ -1,0 +1,210 @@
+﻿@model Pond.Web.Domain.ServiceProvider
+
+@{
+    ViewBag.Title = "Service Providers";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Service Providers</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("List", "Index")
+            </li>
+            <li class="active">
+                <strong>Details</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Html.DisplayFor(model => model.Name)</h5>
+                </div>
+                <div class="ibox-content">
+
+
+				    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryServiceCategory.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryServiceCategory.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceProviderAccountState.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceProviderAccountState.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkTelephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkTelephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileTelephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileTelephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebsiteURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebsiteURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryContactName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_HouseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_HouseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_HouseNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_HouseNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_StreetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_StreetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_Address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_Address1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_Address2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_Address2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_StateProvinceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_StateProvinceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_ZipPostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_ZipPostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_CountryName)
+        </dd>
+
+    </dl>
+
+
+	    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary"})
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-white"})
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

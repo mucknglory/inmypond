@@ -1,0 +1,97 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span>
+                        <img alt="image" class="img-circle" src="~/Images/profile_small.jpg" />
+                    </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">John Duckmanton</strong>
+                            </span> <span class="text-muted text-xs block">Director <b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+@*                        <li><a href="@Url.Action("Profile", "AppViews",)">Profile</a></li>*@
+                        <li><a href="#">Profile</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Login", "Pages")">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    <img src="~/Images/branding/frog-blue-sml.png" />
+                </div>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Index", "Home", new { area= ""})"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Search", "Search", new { area= "Client"})" title="Search" data-toggle="tooltip" data-placement="right"><i class="fa fa-search"></i> <span class="nav-label">Search</span></a>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "My Pond")">
+                <a href="#"><i class="fa fa-book" title="My Pond"></i> <span class="nav-label">My Pond</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="@Html.IsSelected(action: "Favourites")"><a href="@Url.Action("Favourites", "Contacts", new { area = "Client" })">Favourite Contacts</a></li>
+                    <li class="@Html.IsSelected(action: "Recent")"><a href="@Url.Action("Recent", "Contacts", new { area = "Client" })">Recent Contacts</a></li>
+                    <li class="@Html.IsSelected(action: "Contacts")"><a href="@Url.Action("Contacts", "Contacts", new { area = "Client" })">All My Contacts</a></li>
+                </ul>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Connections")">
+                <a href="#"><i class="fa fa-users" title="Connections"></i> <span class="nav-label">Connections</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="@Html.IsSelected(action: "Favourites")"><a href="@Url.Action("Favourites", "Contacts", new { area = "Client" })">My Connections</a></li>
+                    <li class="@Html.IsSelected(action: "Recent")"><a href="@Url.Action("Recent", "Contacts", new { area = "Client" })">Invites</a></li>
+                </ul>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Calendar")">
+                <a href="#"><i class="fa fa-calendar" title="Calendar"></i> <span class="nav-label">Calendars</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="@Html.IsSelected(action: "Calendar")"><a href="@Url.Action("Calendar", "Calendar", new { area = "Client" })">My Calendar</a></li>
+                    <li class="@Html.IsSelected(action: "Events")"><a href="@Url.Action("Events", "Calendar", new { area = "Client" })">My Event List</a></li>
+                </ul>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Messages")">
+                <a href="#"><i class="fa fa-envelope" title="Messages"></i> <span class="nav-label">Messages </span><span class="label label-warning pull-right">16/24</span></a>
+                <ul class="nav nav-second-level">
+                    <li class="@Html.IsSelected(action: "Inbox")"><a href="@Url.Action("Inbox", "Messages", new { area = "Common" })">Inbox</a></li>
+                    <li class="@Html.IsSelected(action: "ComposeMessage")"><a href="@Url.Action("ComposeMessage", "Messages", new { area = "Common" })">Compose Message</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-sitemap" title="My Account"></i> <span class="nav-label">My Account </span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Third Level <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Second Level Item</a></li>
+                    <li>
+                        <a href="#">Second Level Item</a>
+                    </li>
+                    <li>
+                        <a href="#">Second Level Item</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

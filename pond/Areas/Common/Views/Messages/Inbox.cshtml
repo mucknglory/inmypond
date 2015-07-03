@@ -1,0 +1,264 @@
+﻿
+@{
+    ViewBag.Title = "Inbox";
+}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content mailbox-content">
+                    <div class="file-manager">
+                        <a class="btn btn-block btn-primary compose-mail" href="@Url.Action("ComposeEmail", "Messages")">Compose Mail</a>
+                        <div class="space-25"></div>
+                        <h5>Folders</h5>
+                        <ul class="folder-list m-b-md" style="padding: 0">
+                            <li><a href="@Url.Action("Inbox", "Messages")"> <i class="fa fa-inbox "></i> Inbox <span class="label label-warning pull-right">16</span> </a></li>
+                            <li><a href="@Url.Action("Inbox", "Messages")"> <i class="fa fa-envelope-o"></i> Send Message</a></li>
+                            <li><a href="@Url.Action("Inbox", "Messages")"> <i class="fa fa-certificate"></i> Important</a></li>
+                            <li><a href="@Url.Action("Inbox", "Messages")"> <i class="fa fa-file-text-o"></i> Drafts <span class="label label-danger pull-right">2</span></a></li>
+                            <li><a href="@Url.Action("Inbox", "Messages")"> <i class="fa fa-trash-o"></i> Trash</a></li>
+                        </ul>
+                        <h5>Categories</h5>
+                        <ul class="category-list" style="padding: 0">
+                            <li><a href="#"> <i class="fa fa-circle text-navy"></i> Client Message </a></li>
+                            <li><a href="#"> <i class="fa fa-circle text-danger"></i> Notification </a></li>
+                            <li><a href="#"> <i class="fa fa-circle text-warning"></i> System Message </a></li>
+                        </ul>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 animated fadeInRight">
+            <div class="mail-box-header">
+
+                <form method="get" action="#" class="pull-right mail-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm" name="search" placeholder="Search messages">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <h2>
+                    Inbox (16)
+                </h2>
+                <div class="mail-tools tooltip-demo m-t-md">
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i></button>
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i></button>
+
+                    </div>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left" title="Refresh inbox"><i class="fa fa-refresh"></i> Refresh</button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Mark as read"><i class="fa fa-eye"></i> </button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Mark as important"><i class="fa fa-exclamation"></i> </button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o"></i> </button>
+
+                </div>
+            </div>
+            <div class="mail-box">
+
+                <table class="table table-hover table-mail">
+                    <tbody>
+                        <tr class="unread">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Anna Bolick</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">6.10 AM</td>
+                        </tr>
+                        <tr class="unread">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks" checked>
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">James T Kirk</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <<td class=""><i class="fa fa-paperclip"></i></td>
+                            <td class="text-right mail-date">8.22 PM</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Leonard Nimoy</a> <span class="label label-primary pull-right">Client Message</span> </td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">Jan 16</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Mailchip</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">Mar 22</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Alex T.</a> <span class="label label-danger pull-right">Notification</span></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""><i class="fa fa-paperclip"></i></td>
+                            <td class="text-right mail-date">December 22</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Monica Ryther</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">Jun 12</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Sandra Derick</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">May 28</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Patrick Pertners</a> <span class="label label-primary pull-right">Client Message</span></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">May 28</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Michael Fox</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">Dec 9</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Damien Ritz</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">Jun 11</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Anna Smith</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""><i class="fa fa-paperclip"></i></td>
+                            <td class="text-right mail-date">6.10 AM</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Jack Nowak</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">8.22 PM</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Mailchimp</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">Mar 22</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Alex T.</a> <span class="label label-primary pull-right">Client Message</span></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""><i class="fa fa-paperclip"></i></td>
+                            <td class="text-right mail-date">December 22</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Monica Ryther</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">Jun 12</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Sandra Bulwark</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">May 28</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Patrick Pertners</a> </td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">May 28</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Michael Fox</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">Dec 9</td>
+                        </tr>
+                        <tr class="read">
+                            <td class="check-mail">
+                                <input type="checkbox" class="i-checks">
+                            </td>
+                            <td class="mail-ontact"><a href="@Url.Action("ViewMessage", "Messages")">Damien Ritz</a></td>
+                            <td class="mail-subject"><a href="@Url.Action("ViewMessage", "Messages")">Lorem ipsum dolor noretek imit set.</a></td>
+                            <td class=""></td>
+                            <td class="text-right mail-date">Jun 11</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/iCheck")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+        });
+    </script>
+}

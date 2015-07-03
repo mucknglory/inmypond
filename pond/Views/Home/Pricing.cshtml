@@ -1,0 +1,138 @@
+@{
+    ViewBag.Title = "Pricing Plans";
+    Layout = "~/Views/Shared/_AnonLayout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-content">
+                    <div class="col-md-8">
+                        <div class="alert alert-success">SPECIAL OFFER: Sign up for a FREE 30 day trial</div>
+                    </div>
+                    <div class="col-md-4" pull-right>
+                        <a href="/home/pricing" class="btn btn-lg btn-primary">
+                            Start your Free Trial Today! <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="block">
+                        <!--Stack: 4 plans-->
+                        <div class="row pricing-stack pricing-table margin-top-lg">
+                            <div class="col-md-4 pricing-table-features hidden-xs hidden-sm">
+                                <div class="well title-hidden">
+                                    <ul class="pricing-table-features-list">
+                                        <li class="title">Features</li>
+                                        <li>Individual Business Listings</li>
+                                        <li>Online Appointment Manager</li>
+                                        <li>Number of Individual Appointment Books</li>
+                                        <li>Max. Services Listings Included</li>
+                                        <li>Marketing Web-pages</li>
+                                        <li>Premium Listing</li>
+                                        <li>Add your own Portfolio/Gallery</li>
+                                        <li>Client Purchase History</li>
+                                        <li class="price">Price</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 pricing-table-plan">
+                                <div class="well">
+                                    <ul class="pricing-table-features-list">
+                                        <li class="title">Bronze</li>
+                                        <li><span class="visible-xs visible-sm">Individual Business Listings: </span>One</li>
+                                        <li><span class="visible-xs visible-sm">Online Appointment Manager: </span><i class="fa fa-check"></i></li>
+                                        <li><span class="visible-xs visible-sm">Number of Individual Appointment Books: </span>One</li>
+                                        <li><span class="visible-xs visible-sm">Max. Services Listings Included: </span>One</li>
+                                        <li><span class="visible-xs visible-sm">Marketing Web-pages: </span>One</li>
+                                        <li><span class="visible-xs visible-sm">Premium Listing: </span><i class="fa fa-times"></i></li>
+                                        <li><span class="visible-xs visible-sm">Add your own Portfolio/Gallery: </span><i class="fa fa-times"></i></li>
+                                        <li><span class="visible-xs visible-sm">Client Purchase History: </span><i class="fa fa-check"></i></li>
+                                        <li class="price">
+                                            <span class="digits">@Html.ViewData["BronzePricing"] @Html.ViewData["Currency"]</span>
+                                            <span class="term">/Mo</span>
+                                        </li>
+                                        <li class="sign-up-btn last"><a class="btn btn-warning">More Details</a></li>
+                                        <li class="sign-up-btn last"><a class="btn btn-primary">Sign Up</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 pricing-table-plan">
+                                <div class="well active">
+                                    <ul class="pricing-table-features-list">
+                                        <li class="title">Silver</li>
+                                        <li><span class="visible-xs visible-sm">Individual Business Listings: </span>One</li>
+                                        <li><span class="visible-xs visible-sm">Online Appointment Manager: </span><i class="fa fa-check"></i></li>
+                                        <li><span class="visible-xs visible-sm">Number of Individual Appointment Books: </span>Ten</li>
+                                        <li><span class="visible-xs visible-sm">Max. Services Listings Included: </span>Ten</li>
+                                        <li><span class="visible-xs visible-sm">Marketing Web-pages: </span>One</li>
+                                        <li><span class="visible-xs visible-sm">Premium Listing: </span><i class="fa fa-times"></i></li>
+                                        <li><span class="visible-xs visible-sm">Add your own Portfolio/Gallery: </span><i class="fa fa-check"></i></li>
+                                        <li><span class="visible-xs visible-sm">Client Purchase History: </span><i class="fa fa-check"></i></li>
+                                        <li class="price">
+                                            <span class="digits">@Html.ViewData["SilverPricing"] @Html.ViewData["Currency"]</span>
+                                            <span class="term">/Mo</span>
+                                        </li>
+                                        <li class="sign-up-btn last"><a class="btn btn-warning">More Details</a></li>
+                                        <li class="sign-up-btn last"><a class="btn btn-primary">Sign Up</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 pricing-table-plan">
+                                <div class="well">
+                                    <ul class="pricing-table-features-list">
+                                        <li class="title">Gold</li>
+                                        <li><span class="visible-xs visible-sm">Individual Business Listings: </span>Five</li>
+                                        <li><span class="visible-xs visible-sm">Online Appointment Manager: </span><i class="fa fa-check"></i></li>
+                                        <li><span class="visible-xs visible-sm">Number of Individual Appointment Books: </span>Twenty</li>
+                                        <li><span class="visible-xs visible-sm">Max. Services Listings Included: </span>Twenty</li>
+                                        <li><span class="visible-xs visible-sm">Marketing Web-pages: </span>Multiple</li>
+                                        <li><span class="visible-xs visible-sm">Premium Listing: </span><i class="fa fa-check"></i></li>
+                                        <li><span class="visible-xs visible-sm">Add your own Portfolio/Gallery: </span><i class="fa fa-check"></i></li>
+                                        <li><span class="visible-xs visible-sm">Client Purchase History: </span><i class="fa fa-check"></i></li>
+                                        <li class="price">
+                                            <span class="digits">@Html.ViewData["GoldPricing"] @Html.ViewData["Currency"]</span>
+                                            <span class="term">/Mo</span>
+                                        </li>
+                                        <li class="sign-up-btn last"><a class="btn btn-warning">More Details</a></li>
+                                        <li class="sign-up-btn last"><a class="btn btn-primary">Sign Up</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 pricing-table-plan">
+                                <div class="well">
+                                    <ul class="pricing-table-features-list">
+                                        <li class="title">Platinum</li>
+                                        <li><span class="visible-xs visible-sm">Individual Business Listings: </span>Ten</li>
+                                        <li><span class="visible-xs visible-sm">Online Appointment Manager: </span><i class="fa fa-check"></i></li>
+                                        <li><span class="visible-xs visible-sm">Number of Individual Appointment Books: </span>Unlimited</li>
+                                        <li><span class="visible-xs visible-sm">Max. Services Listings Included: </span>Unlimited</li>
+                                        <li><span class="visible-xs visible-sm">Marketing Web-pages: </span>Multiple</li>
+                                        <li><span class="visible-xs visible-sm">Premium Listing: </span><i class="fa fa-check"></i></li>
+                                        <li><span class="visible-xs visible-sm">Add your own Portfolio/Gallery: </span><i class="fa fa-check"></i></li>
+                                        <li><span class="visible-xs visible-sm">Client Purchase History: </span><i class="fa fa-check"></i></li>
+                                        <li class="price">
+                                            <span class="digits">@Html.ViewData["PlatinumPricing"] @Html.ViewData["Currency"]</span>
+                                            <span class="term">/Mo</span>
+                                        </li>
+                                        <li class="sign-up-btn"><a class="btn btn-warning">More Details</a></li>
+                                        <li class="sign-up-btn last"><a class="btn btn-primary">Sign Up</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- Plan features -->
+                            <div class="well well-sm text-center">
+                                <h4 class="inline-el pad-right">
+                                    <span>All Plans <span class="de-em">Include</span>:</span>
+                                </h4>
+                                <p class="inline-el pad-left muted">Full data backups <span class="spacer">//</span> Email support <span class="spacer">//</span> Telephone support 9am-5pm <span class="spacer">//</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

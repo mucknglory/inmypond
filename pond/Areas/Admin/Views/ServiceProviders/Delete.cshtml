@@ -1,0 +1,153 @@
+﻿@model Pond.Web.Domain.ServiceProvider
+
+@{
+    ViewBag.Title = "Service Providers";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Service Providers</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("List", "Index")
+            </li>
+            <li class="active">
+                <strong>Delete</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+			@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary"})
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Html.DisplayFor(model => model.Name)</h5>
+                </div>
+                <div class="ibox-content">
+				<h4 class="text-danger">Are you sure you want to delete this Service Provider?</h4>
+				 <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryContactName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_HouseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_HouseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_HouseNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_HouseNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_StreetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_StreetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_Address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_Address1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_Address2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_Address2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_StateProvinceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_StateProvinceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_ZipPostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_ZipPostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessAddress_CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessAddress_CountryName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-white"})
+        </div>
+    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+

@@ -1,0 +1,204 @@
+﻿@{
+    ViewBag.Title = "Search Results";
+}
+
+@Html.Partial("_BreadcrumbsPartial")
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Search Results <small>for Tuesday 14th April 2015</small></h5>
+                </div>
+                <div class="ibox-content">
+@*                    <div class="search-result">*@
+                        @*<div class="btn-toolbar" role="toolbar" aria-label="...">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default" disabled="disabled">Sun</button>
+                                <button type="button" class="btn btn-primary">Mon</button>
+                                <button type="button" class="btn btn-danger" disabled="disabled">Tue</button>
+                                <button type="button" class="btn btn-danger" disabled="disabled">Wed</button>
+                                <button type="button" class="btn btn-primary">Thu</button>
+                                <button type="button" class="btn btn-danger" disabled="disabled">Fri</button>
+                                <button type="button" class="btn btn-danger" disabled="disabled">Sat</button>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default" disabled="disabled">Sun</button>
+                                <button type="button" class="btn btn-danger" disabled="disabled">Mon</button>
+                                <button type="button" class="btn btn-danger" disabled="disabled">Tue</button>
+                                <button type="button" class="btn btn-primary">Wed</button>
+                                <button type="button" class="btn btn-primary">Thu</button>
+                                <button type="button" class="btn btn-primary">Fri</button>
+                                <button type="button" class="btn btn-default" disabled="disabled">Sat</button>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default" disabled="disabled">Sun</button>
+                                <button type="button" class="btn btn-primary">Mon</button>
+                                <button type="button" class="btn btn-danger" disabled="disabled">Tue</button>
+                                <button type="button" class="btn btn-danger" disabled="disabled">Wed</button>
+                                <button type="button" class="btn btn-primary">Thu</button>
+                                <button type="button" class="btn btn-danger" disabled="disabled">Fri</button>
+                                <button type="button" class="btn btn-danger" disabled="disabled">Sat</button>
+                            </div>
+                        </div>
+                    </div>*@
+
+                    <!-- Calendar Heatmap Control -->    
+                    <div class="search-result">
+                        <div id="cal-heatmap"></div>
+                    </div>
+
+                    <div class="search-result">
+                        <div class="pull-right">
+                            <a href="#">rating</a><span class="utils-pipeSpacer">|</span><a href="#">distance</a>
+                            <button type="button" class="btn btn-sm btn-white"> <i class="fa fa-bars"></i> </button>
+                            <button type="button" class="btn btn-sm btn-white"> <i class="fa fa-map-marker"></i> </button>
+                        </div>
+
+                        <table class="table table-striped table-bordered table-hover resultsTable">
+                            <tbody>
+                                <tr class="gradeX well">
+                                    <td><i class="fa fa-camera-retro fa-4x"></i></td>
+                                    <td>
+                                        <h3><a class="active" href="#">Duckmanton Heating Installations Ltd.</a></h3><a href="#">Plumbers</a><br />
+                                        <span>Lorem ipsum dolor sit amet, ex mei timeam impedit suscipiantur, nibh possim eu eos. Nemore patrioque consequuntur ut vim. Ad mea aeterno ceteros. Vix duis volumus torquatos an, mel legere habemus facilisis ex, facilis splendide ei eam. Ei vel solum euismod tractatos, sed in debet fierent. Ei illud noluisse mediocrem eos, id mel tritani expetendis, graecis tincidunt per ea.</span><br/>
+                                        <a href="#"><i class="fa fa-map-marker"></i> 3 miles away</a>
+                                    </td>
+                                    <td>
+                                        <div class="reviews-borderRadius">
+                                            <a href="#"></a><div>
+                                                <span class="starRating" title="5 out of 5 stars from 21 ratings">
+                                                    <span class="rateit" data-rateit-value="5" data-rateit-ispreset="true" data-rateit-readonly="true"></span>
+                                                </span>
+                                                <div class="reviews-text active"><a href="#">21 Ratings</a></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary" href="@Url.Action("ProviderAvailability", "Search", new { area = "Client" })"><i class="fa fa-calendar"></i>&nbsp;&nbsp; View Availability </a>
+                                        <button class="btn btn-sm">Add to shortlist</button>
+                                        <a class="btn btn-white"><i class="fa fa-heart-o"></i> Add to Favourites </a>
+                                    </td>
+                                </tr>
+                                <tr class="gradeX">
+                                    <td><i class="fa fa-camera-retro fa-4x"></i></td>
+                                    <td>
+                                        <h3><a class="active" href="#">Duckmanton Brothers (UK) Ltd.</a></h3><a href="#">Plumbers</a><br />
+                                        <span>Lorem ipsum dolor sit amet, ex mei timeam impedit suscipiantur, nibh possim eu eos. Nemore patrioque consequuntur ut vim. Ad mea aeterno ceteros. Vix duis volumus torquatos an, mel legere habemus facilisis ex, facilis splendide ei eam. Ei vel solum euismod tractatos, sed in debet fierent. Ei illud noluisse mediocrem eos, id mel tritani expetendis, graecis tincidunt per ea.</span><br/>
+                                        <a href="#"><i class="fa fa-map-marker"></i> 3.2 miles away</a>
+                                    </td>
+                                    <td>
+                                        <div class="reviews-borderRadius">
+                                            <a href="#"></a><div>
+                                                <span class="starRating" title="4 out of 5 stars from 9 ratings">
+                                                    <span class="rateit" data-rateit-value="4" data-rateit-ispreset="true" data-rateit-readonly="true"></span>
+                                                </span>
+                                                <div class="reviews-text active"><a href="#">9 Ratings</a></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary btm-sm" href="@Url.Action("ProviderAvailability", "Search", new { area = "Client" })"><i class="fa fa-calendar"></i>&nbsp;&nbsp; View Availability </a>
+                                        <button class="btn btn-sm">Add to shortlist</button>
+                                        <p><i class="fa fa-heart"></i> Favourite</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/Content/plugins/cal-heatmap")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/cal-heatmap")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //$('.resultsTable').dataTable({
+            //    "dom": 'T<"clear">lfrtip',
+            //    searching: false,
+            //    lengthMenu: false
+            //    //"tableTools": {
+            //    //    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+            //    //}
+            //});
+
+            /* Init DataTables */
+            //var oTable = $('#editable').dataTable();
+
+            ///* Apply the jEditable handlers to the table */
+            //oTable.$('td').editable( '../example_ajax.php', {
+            //    "callback": function( sValue, y ) {
+            //        var aPos = oTable.fnGetPosition( this );
+            //        oTable.fnUpdate( sValue, aPos[0], aPos[1] );
+            //    },
+            //    "submitdata": function ( value, settings ) {
+            //        return {
+            //            "row_id": this.parentNode.getAttribute('id'),
+            //            "column": oTable.fnGetPosition( this )[2]
+            //        };
+            //    },
+
+            //    "width": "90%",
+            //    "height": "100%"
+            //} );
+            var calDataParser = function (data) {
+                var stats = {};
+                for (var d in data) {
+                    stats[data[d].date] = data[d].value;
+                }
+                return stats;
+            };
+
+            var calendar = new CalHeatMap();
+            calendar.init({
+                data: "/Client/Search/GetProviderAvailability?start=2015-06-01&end=2015-07-01&SupplierID=0",
+                start: new Date(2015, 06, 15),
+                id : "cal-heatmap",
+                domain : "month",
+                subDomain : "x_day",
+                range: 6,
+                cellsize: 15,
+                cellpadding: 3,
+                domainGutter: 15,
+                scale: [2, 4, 6, 8, 10],
+                itemName : ["service provider", "service providers"],
+                browsing: true,
+                afterLoadData: function (data) {
+                    var stats = {};
+                    for (var d in data) {
+                        stats[data[d].date] = data[d].value;
+                    }
+                    return stats;
+                },
+                onClick: function (date, count) {
+                    alert(count + " service providers have availability on " + date.toISOString());
+                }
+            });
+
+        });
+
+        function fnClickAddRow() {
+            $('#editable').dataTable().fnAddData([
+                "Custom row",
+                "New row",
+                "New row",
+                "New row",
+                "New row"]);
+
+        }
+    </script>
+}

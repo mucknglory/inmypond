@@ -1,0 +1,167 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using Pond.Web.DAL;
+using Pond.Web.Domain;
+
+namespace Pond.Web.Areas.Admin.Controllers
+{
+    public class ServiceProvidersController : Controller
+    {
+        private PondDbContext db = new PondDbContext();
+
+        // GET: /Admin/ServiceProviders/
+        public ActionResult Index()
+        {
+            var serviceproviders = db.ServiceProviders.Include(s => s.PrimaryServiceCategory);
+            return View(serviceproviders.ToList());
+        }
+
+        // GET: /Admin/ServiceProviders/Details/5
+        public ActionResult Details(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ServiceProvider serviceProvider = db.ServiceProviders.Find(id);
+            if (serviceProvider == null)
+            {
+                return HttpNotFound();
+            }
+            return View(serviceProvider);
+        }
+
+        // GET: /Admin/ServiceProviders/Create
+        public ActionResult Create()
+        {
+            ViewBag.PrimaryServiceCategoryID = new SelectList(db.ServiceCategories, "ID", "Name");
+            return View();
+        }
+
+        // POST: /Admin/ServiceProviders/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include="Name,Description,PrimaryServiceCategoryID,WorkTelephone,MobileTelephone,URL,EmailAddress,PrimaryContactName,BusinessAddress,BillingAddress")] ServiceProvider serviceProvider)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    // Set the registration date to today's date
+                    serviceProvider.RegistrationDate = System.DateTime.Today;
+
+                    db.ServiceProviders.Add(serviceProvider);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DataException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+            }
+
+            ViewBag.PrimaryServiceCategoryID = new SelectList(db.ServiceCategories, "ID", "Name", serviceProvider.PrimaryServiceCategoryID);
+            return View(serviceProvider);
+        }
+
+        // GET: /Admin/ServiceProviders/Edit/5
+        public ActionResult Edit(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ServiceProvider serviceProvider = db.ServiceProviders.Find(id);
+            if (serviceProvider == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.PrimaryServiceCategoryID = new SelectList(db.ServiceCategories, "ID", "Name", serviceProvider.PrimaryServiceCategoryID);
+            return View(serviceProvider);
+        }
+
+        [HttpPost, ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPost(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var serviceProvider = db.ServiceProviders.Find(id);
+            if (TryUpdateModel(serviceProvider, "",
+               new string[] { "Name", "Description", "PrimaryServiceCategoryID", "WorkTelephone", "MobileTelephone", "URL", "EmailAddress", "PrimaryContactName", "BusinessAddress", "BillingAddress" }))
+            {
+                try
+                {
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                catch (DataException /* dex */)
+                {
+                    //Log the error (uncomment dex variable name and add a line here to write a log.
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                }
+            }
+            ViewBag.PrimaryServiceCategoryID = new SelectList(db.ServiceCategories, "ID", "Name", serviceProvider.PrimaryServiceCategoryID);
+            return View(serviceProvider);
+        }
+
+        // GET: /Admin/ServiceProviders/Delete/5
+        public ActionResult Delete(int? id, bool? saveChangesError = false)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
+            }
+            ServiceProvider serviceProvider = db.ServiceProviders.Find(id);
+            if (serviceProvider == null)
+            {
+                return HttpNotFound();
+            }
+            return View(serviceProvider);
+        }
+
+        // POST: /Admin/ServiceProviders/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                ServiceProvider serviceProvider = db.ServiceProviders.Find(id);
+                db.ServiceProviders.Remove(serviceProvider);
+                db.SaveChanges();
+            }
+            catch (DataException/* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+            }
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}

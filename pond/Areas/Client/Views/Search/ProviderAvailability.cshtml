@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Search Results";
+}
+
+@Html.Partial("_BreadcrumbsPartial")
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Search Results</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <i class="fa fa-camera-retro fa-5x"></i>
+                            <div class="reviews-borderRadius">
+                                <a href="#"></a><div>
+                                    <span class="starRating" title="5 out of 5 stars from 21 ratings">
+                                        <span class="rateit" data-rateit-value="5" data-rateit-ispreset="true" data-rateit-readonly="true"></span>
+                                    </span>
+                                    <div class="reviews-text active"><a href="#">21 Ratings</a></div>
+                                </div>
+                            </div>
+                            <p><i class="fa fa-heart fa-2x"></i> Favourite</p>
+                            <button class="btn btn-sm">Add to shortlist</button>
+                        </div>
+                        <div class="col-md-5">
+                            <h3><a class="active" href="#">Duckmanton Heating Installations Ltd.</a></h3><a href="#">Plumbers</a><br />
+                            <span>Lorem ipsum dolor sit amet, ex mei timeam impedit suscipiantur, nibh possim eu eos. Nemore patrioque consequuntur ut vim. Ad mea aeterno ceteros. Vix duis volumus torquatos an, mel legere habemus facilisis ex, facilis splendide ei eam. Ei vel solum euismod tractatos, sed in debet fierent. Ei illud noluisse mediocrem eos, id mel tritani expetendis, graecis tincidunt per ea.</span><br />
+                            <a href="#"><i class="fa fa-map-marker"></i>&nbsp;3 miles away</a>
+
+                            <p>
+                                <div class="google-map" id="map1"></div>
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+                            <h4>Availability for</h4>
+                            <h3 class="font-bold">
+                                Tuesday 26th May 2015
+                            </h3>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a type="button" class="btn btn-w-m btn-primary" href="#">9:00 - 9:30</a>
+                                        <a type="button" class="btn btn-w-m btn-primary" href="#">9:30 - 10:00</a>
+                                        <a type="button" class="btn btn-w-m btn-success" href="#">10:00 - 10:30</a>
+                                        <a type="button" class="btn btn-w-m btn-danger" href="#">10:30 - 11:00</a>
+                                        <a type="button" class="btn btn-w-m btn-danger" href="#">11:00 - 11:30</a>
+                                        <a type="button" class="btn btn-w-m btn-danger" href="#">11:30 - 12:00</a>
+                                        <a type="button" class="btn btn-w-m btn-danger" href="#">12:00 - 12:30</a>
+                                        <a type="button" class="btn btn-w-m btn-danger" href="#">12:30 - 13:00</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <td>
+                                        <a type="button" class="btn btn-w-m btn-primary" href="#">Book</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts {
+        <!--
+         You need to include this script on any page that has a Google Map.
+         When using Google Maps on your own site you MUST signup for your own API key at:
+         https://developers.google.com/maps/documentation/javascript/tutorial#api_key
+         After your sign up replace the key in the URL below..
+        -->
+        @Scripts.Render("https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70")
+
+        <script type="text/javascript">
+        // When the window has finished loading google map
+        google.maps.event.addDomListener(window, 'load', init);
+
+        function init() {
+            // Options for Google map
+            // More info see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+            var mapOptions1 = {
+                zoom: 14,
+                center: new google.maps.LatLng(53.432093, -1.216937),
+                // Style for Google Maps
+                styles: [{ "featureType": "water", "stylers": [{ "saturation": 43 }, { "lightness": -11 }, { "hue": "#0088ff" }] }, { "featureType": "road", "elementType": "geometry.fill", "stylers": [{ "hue": "#ff0000" }, { "saturation": -100 }, { "lightness": 99 }] }, { "featureType": "road", "elementType": "geometry.stroke", "stylers": [{ "color": "#808080" }, { "lightness": 54 }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#ece2d9" }] }, { "featureType": "poi.park", "elementType": "geometry.fill", "stylers": [{ "color": "#ccdca1" }] }, { "featureType": "road", "elementType": "labels.text.fill", "stylers": [{ "color": "#767676" }] }, { "featureType": "road", "elementType": "labels.text.stroke", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "poi", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape.natural", "elementType": "geometry.fill", "stylers": [{ "visibility": "on" }, { "color": "#b8cb93" }] }, { "featureType": "poi.park", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.sports_complex", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.medical", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.business", "stylers": [{ "visibility": "simplified" }] }]
+            };
+
+            // Get all html elements for map
+            var mapElement1 = document.getElementById('map1');
+
+            // Create the Google Map using elements
+            var map1 = new google.maps.Map(mapElement1, mapOptions1);
+        }
+        </script>
+    }
+

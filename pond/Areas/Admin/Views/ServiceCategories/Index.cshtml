@@ -1,0 +1,88 @@
+﻿@model PagedList.IPagedList<Pond.Web.Domain.ServiceCategory>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>@ViewBag.Title</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <strong>Service Categories</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>List of Service Categories</h5>
+                    <div class="ibox-tools">
+                        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-xs" })
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Index", "ServiceCategories", FormMethod.Get))
+                    {
+                        <div class="col-md-6">
+
+                            <div class="input-group">
+                                @Html.TextBox("searchstring", null, new { @type = "Search", @placeholder = "Type here to filter...", @class = "input form-control" })
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary"> <i class="fa fa-filter"></i> Apply</button>
+                                </span>
+                            </div>
+                        </div>
+                    }
+                    <table class="table table-striped">
+                        <tr>
+                            <th>
+                                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParam, currentFilter = ViewBag.CurrentFilter })
+                            </th>
+                            <th>
+                                @Html.ActionLink("Description", "Index", new { sortOrder = ViewBag.DescriptionSortParam, currentFilter = ViewBag.CurrentFilter })
+                            </th>
+                            <th>
+                                @Html.ActionLink("Parent Category", "Index", new { sortOrder = ViewBag.ParentCategorySortParam, currentFilter = ViewBag.CurrentFilter })
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.parentCategoryID)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-xs" })
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-white btn-xs" })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-white btn-xs" })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                    @Html.PagedListPager(Model, page => Url.Action("Index",
+                        new { page, sortOrder = ViewBag.currentSort, currentFilter = ViewBag.CurrentFilter }))
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
